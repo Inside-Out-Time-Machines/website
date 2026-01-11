@@ -1,0 +1,124 @@
+:root {
+    --color-gray-100: #f3f4f6; 
+    --color-gray-500: #6b7280; 
+    --color-gray-900: #111827; 
+	--primary-color: #12a125dd;
+}
+
+body {
+	margin: 0;
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	background-color: var(--color-gray-100);
+	overflow: hidden;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.stack-container {
+	position: relative;
+	width: 450px;
+	height: 450px;
+	margin: auto;
+}
+
+.stack-container > div {
+	position: absolute;
+}
+
+.rotating-title {
+	width: 500px;
+	height: 500px;
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -250px;
+}
+
+.rotating-title svg {
+	animation: rotateClockwise 10s linear infinite;
+	transform-origin: center;
+}
+
+.camera {
+	width: 480px;
+	height: 352px;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	margin-top: -176px;
+	margin-left: -247px;
+}
+
+.camera img {
+	width: 480px;
+	height: 352px;
+	margin-left:0;
+	display: block;
+}
+
+.dials {
+	width: 0;
+	height: 0;
+	z-index: 200;
+	top: 56%;
+	left: 51%;
+}
+
+.dial {
+	position: absolute;
+	background-color: var(--primary-color);
+	transform-origin: bottom center;
+	border-radius: 2px;
+}
+
+.hour-dial {
+	width: 6px;
+	height: 45px;
+	bottom: 0;
+	left: -4px;
+	animation: rotateAntiClockwise 360s linear infinite;
+}
+
+.minute-dial {
+	width: 5px;
+	height: 75px;
+	bottom: 0;
+	left: -2.5px;
+	animation: rotateAntiClockwise 60s linear infinite;
+}
+
+.dial-center {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: var(--primary-color);
+	border-radius: 50%;
+	top: -10px;
+	left: -10px;
+	z-index: 1;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+text {
+	font-size: 2.6em;
+	fill: var(--primary-color);
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+@keyframes rotateClockwise {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes rotateAntiClockwise {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(-360deg); }
+}
